@@ -2,10 +2,10 @@ HaSSL
 =====
 
 This is my 1992 teaching material on RSA that I retrieved from my archives more than 20 years later.
-Some file were added in 2003.
+Some files were added in 2003.
 The code was originally written for gofer, a Haskell-like language, and later ported to Haskell to run under Hugs98.
 
-It struck me that after all this time, this code is stil usable for teaching purposes.
+It struck me that after all this time, this code is still usable for teaching purposes.
 
 The original README file from 2003 is pasted verbatim below. I'm not sure if HaskellScript is still available somewhere.
 
@@ -30,11 +30,11 @@ or
 
 
 Have Fun!
--- Joost van Dijk
--- joostd@liacs.nl
 
-Files:
-RSA.hs		- the RSA implementation
-rsa-129.hs	- demo for decrypting Rivest's challenge from 1977
-rsa-demo.hs	- wrapper for using RSA from the command line
-rsa.html	- wrapper for using RSA from a browser with HaskellScript support
+Files
+-----
+
+- RSA.hs		- the RSA implementation
+- rsa-129.hs	- demo for decrypting Rivest's challenge from 1977
+- rsa-demo.hs	- wrapper for using RSA from the command line
+- rsa.html	- wrapper for using RSA from a browser with HaskellScript support
