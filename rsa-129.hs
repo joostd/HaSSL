@@ -2,6 +2,7 @@ module RSA129 where
 import RSA	-- RSA encryption
 import Util	-- group
 import NumUtils	-- group
+import Data.Char
 
 -- The original 1977 RSA-129 challenge
 
