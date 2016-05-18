@@ -26,7 +26,7 @@ or
 
 	$ hugs rsa-129.hs
 	
-and after the prompt (respectively `RsaDemo>` or `RSA129>`), type 'main'
+and after the prompt (respectively `RsaDemo>` or `RSA129>`), type `main`
 
 
 Have Fun!
