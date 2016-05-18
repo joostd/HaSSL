@@ -21,12 +21,12 @@ Note that HaskellScript is only available for Internet Explorer on MS Windows.
 If you installed hugs, type
 
 	$ hugs rsa-demo.hs
-	and after the prompt ('RsaDemo>'), type 'main'
-
+	
 or
 
 	$ hugs rsa-129.hs
-	and after the prompt ('RSA129>'), type 'main'
+	
+and after the prompt (respectively 'RsaDemo>' or 'RSA129>'), type 'main'
 
 
 Have Fun!
