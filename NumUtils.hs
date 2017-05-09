@@ -1,6 +1,6 @@
 module NumUtils
-	( primes, isPrime, isPseudoPrime, findPrime, euclid, modexp
-	) where
+        ( primes, isPrime, isPseudoPrime, findPrime, euclid, modexp
+        ) where
 
 -- Prime numbers
 
@@ -9,12 +9,12 @@ primes = sieve [2..]
   where
     sieve (n:ns) = n : sieve (filter (\d -> d `mod` n /= 0) ns)
 
-isPrime p = all (\n -> p `mod` n /= 0) [ 2.. (floor.sqrt.fromInteger $ p) ]	-- very inefficient!
+isPrime p = all (\n -> p `mod` n /= 0) [ 2.. (floor.sqrt.fromInteger $ p) ]    -- very inefficient!
 
-isPseudoPrime p = modexp p 2 (p-1) == 1						-- less accurate, but much more efficient
+isPseudoPrime p = modexp p 2 (p-1) == 1                        -- less accurate, but much more efficient
 
 findPrime start = head ( filter isPseudoPrime [ start.. ] )
-findPrime start = head ( filter isPrime [ start.. ] )		-- not used
+--findPrime start = head ( filter isPrime [ start.. ] )        -- not used
 
 --
 -- Extended Euclid Algorithm
@@ -44,5 +44,5 @@ modexp k x n
      where
       g k x n
         | even n    = g k ((x*x) `mod` k) (n`quot`2)
-	| otherwise = f k x (n-1) ((x*y) `mod` k)
+        | otherwise = f k x (n-1) ((x*y) `mod` k)
 modexp _ _ _ = error "modexp: negative exponent"

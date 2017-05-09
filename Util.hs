@@ -1,7 +1,7 @@
 module Util
         ( group
         , join
-	, padl, padr
+        , padl, padr
         ) where
 
 -- join a list using s as a separator

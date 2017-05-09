@@ -4,6 +4,8 @@
 
 module RsaDemo where
 import RSA
+import NumUtils
+import Data.Char
 
 getKeys =
  do putStr "Enter first prime base: "
@@ -23,9 +25,9 @@ getMessage modulus =
  do putStr $ "Enter message: "
     message <- getLine
     --putStrLn $ "message in base 256: " ++ (show $ map ord message)
-    let chunk = undigits 256 (map (toInteger.ord) message)	-- render msg as one huge number
+    let chunk = undigits 256 (map (toInteger.ord) message)    -- render msg as one huge number
     --putStrLn $ "message as huge number: " ++ (show chunk)
-    let chunks = digits modulus chunk	-- split huge number into digestable chunks
+    let chunks = digits modulus chunk    -- split huge number into digestable chunks
     --putStrLn $ "message in base " ++ show modulus ++ ": " ++ (show chunks)
     return (map toInteger chunks)
 
@@ -44,7 +46,7 @@ main =
     putStrLn "Decrypting..."
     let message = map (decrypt private_key) ciphertext
     putStrLn (show message)
-    let s = map (chr.toInt) . digits 256 . undigits modulus $ message
+    let s = map (chr.fromInteger) . digits 256 . undigits modulus $ message
     putStrLn (show s)
 
 --
@@ -54,5 +56,5 @@ main =
 -- convert a list in radix r to a number and vice versa
 digits radix 0 = []
 digits radix n = digits radix (q) ++ [r] where
-	(q,r) = n `quotRem` radix
+        (q,r) = n `quotRem` radix
 undigits radix = foldl (\n digit -> radix*n + digit) 0

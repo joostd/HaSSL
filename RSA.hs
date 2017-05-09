@@ -6,11 +6,11 @@
 -- Some usefull algorithms
 
 module RSA
-	( Message, Key, KeySet
-	, encrypt, decrypt, keySet
-	) where
+    ( Message, Key, KeySet
+    , encrypt, decrypt, keySet
+    ) where
 
-import NumUtils	-- euclid, modexp
+import NumUtils    -- euclid, modexp
 
 --
 -- RSA Public-key Cryptosystem
@@ -28,7 +28,7 @@ type Message = Integer
 keySet :: Integer -> Integer -> (Key, Key)
 keySet p q = (public_key, private_key)
   where
-    -- (p, q) = (11, 29)	-- generate
+    -- (p, q) = (11, 29)    -- generate
     n = p * q
     -- compute euler's phi function at n
     phi_n = (p-1) * (q-1)

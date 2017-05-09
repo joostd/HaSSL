@@ -1,7 +1,7 @@
 module RSA129 where
-import RSA	-- RSA encryption
-import Util	-- group
-import NumUtils	-- group
+import RSA        -- RSA encryption
+import Util       -- group
+import NumUtils   -- group
 import Data.Char
 
 -- The original 1977 RSA-129 challenge
@@ -27,17 +27,17 @@ p2 = 32769132993266709549961988190834461413177642967992942539798288533
 
 -- Derive the private exponent from p1, p2 and e:
 d = if x < 0 then x+phi_r else x where
-	-- compute euler's totient function at r
-	phi_r = (p1-1) * (p2-1)
-	-- compute multiplicative inverse of e modulo phi(r)
-	(_,x,_) = euclid e phi_r
+        -- compute euler's totient function at r
+        phi_r = (p1-1) * (p2-1)
+        -- compute multiplicative inverse of e modulo phi(r)
+        (_,x,_) = euclid e phi_r
 -- d == 106698614368578024442868771328920154780709906633937862801226224496631063125911774470873340168597462306553968544513277109053606095
 
 -- So, these are our keys:
 private_key = (d,r)
 public_key  = (e,r)
 
-plaintext = decode . show . decrypt private_key $ ciphertext	-- Sapperdeflap!
+plaintext = decode . show . decrypt private_key $ ciphertext        -- Sapperdeflap!
 challenge = encrypt public_key . read . encode $ plaintext
 
 main = plaintext
@@ -49,8 +49,8 @@ main = plaintext
 alphabet = [' '] ++ ['A'..'Z']
 
 decode = map code . group 2 where
-	code = (alphabet!!) . read
+        code = (alphabet!!) . read
 
 encode = concat . map code where
-	code ' ' = "00"
-	code  c  = padl '0' 2 . show $ ord c - ord '@'
+        code ' ' = "00"
+        code  c  = padl '0' 2 . show $ ord c - ord '@'
